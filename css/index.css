@@ -1,0 +1,28 @@
+.contents{
+    margin: 20px 0px;
+}
+
+.contents__explain{
+    margin: 10px 0px; 
+}
+
+.contents__form{
+    margin: 10px 0px;
+}
+
+.form__list{
+    height: 25px;
+    margin: 10px 0px;
+    list-style-type: none;
+}
+
+.list__inputText{
+    width: 80px;
+    height: 25px;
+}
+
+.form__submitBtn{
+    width: 50px;
+    height: 30px;
+    margin: 15px 0px;
+}
