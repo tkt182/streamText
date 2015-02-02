@@ -79,7 +79,8 @@ $(function(){
 
     
     $("#systemStart").on('click', function(){
-   
+  
+        /* 
         if(conn === null || conn.sessionid() === null){
 
             conn = new ab.Session(
@@ -98,7 +99,10 @@ $(function(){
             viewer        = window.open(encodeURI(viewerUrl), 'streamText Viewr'); 
         
         }
+        */
 
+        var viewerUrl = '../streamText/streamText.php?startTime=' + startTime; 
+        viewer        = window.open(encodeURI(viewerUrl), 'streamText Viewr'); 
 
     });
 
