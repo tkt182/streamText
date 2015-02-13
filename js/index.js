@@ -1,6 +1,8 @@
 $(function(){
 
     'use strict';
+    
+    // 以下、ものすごくひどいコードです。。 
     var date    = new Date();
 
     var cYear    = String(date.getFullYear());
@@ -26,56 +28,47 @@ $(function(){
 
     $('#startDate').on('submit', function(e){
 
-        var tmpYear   = $('#year').val();
-        var tmpMonth  = $('#month').val();
-        var tmpDay    = $('#day').val(); 
-        var tmpHour   = $('#hour').val();
-        var tmpMinute = $('#minute').val();
 
-        if(!streamText.util.isPositiveInteger(tmpYear)){
+        var year   = $('#year').val();
+        var month  = $('#month').val();
+        var day    = $('#day').val(); 
+        var hour   = $('#hour').val();
+        var minute = $('#minute').val();
+
+        if(!streamText.util.isPositiveInteger(year)){
             alert('「年」の値が不正です'); 
             return false; 
         }
 
-        if(!streamText.util.isPositiveInteger(tmpMonth)){
+        if(!streamText.util.isPositiveInteger(month)){
             alert('「月」の値が不正です'); 
             return false; 
         }
 
-        if(!streamText.util.isPositiveInteger(tmpDay)){
+        if(!streamText.util.isPositiveInteger(day)){
             alert('「日」の値が不正です'); 
             return false; 
         }
 
-        if(!streamText.util.isPositiveInteger(tmpHour)){
+        if(!streamText.util.isPositiveInteger(hour)){
             alert('「時」の値が不正です'); 
             return false; 
         }
 
-        if(!streamText.util.isPositiveInteger(tmpMinute)){
+        if(!streamText.util.isPositiveInteger(minute)){
             alert('「分」の値が不正です'); 
             return false; 
         }
 
-
-        var date = new Date(tmpYear, tmpMonth, tmpDay, tmpHour, tmpMinute);
-        if(date.toString() === "Invalid Date"){
+        if(!streamText.util.checkDatetime(year, month - 1, day, hour, minute)){
             alert('不正な値があります'); 
             return false;
         }
 
-        var year    = String(date.getFullYear());
-        var month   = String((date.getMonth() % 12) == 0 ? 12 : date.getMonth()); // 力技
-        var day     = String(date.getDate());
-        var hour    = String(date.getHours());
-        var minute  = String(date.getMinutes());
-       
-        
-        month  = streamText.util.zeroBind(month, 2);
-        day    = streamText.util.zeroBind(day, 2);
-        hour   = streamText.util.zeroBind(hour, 2);
-        minute = streamText.util.zeroBind(minute, 2);
-
+        month  = streamText.util.zeroBind(String(month - 1), 2);
+        day    = streamText.util.zeroBind(String(day), 2);
+        hour   = streamText.util.zeroBind(String(hour), 2);
+        minute = streamText.util.zeroBind(String(minute), 2);
 
         var msg = '開始時間は ' + year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':00 となりますが、よいでしょうか';   
 
