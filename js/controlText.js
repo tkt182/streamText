@@ -14,7 +14,7 @@ $(function(){
 
         streamText.ajaxFunc.sendData(url, cmd, cmdBtn)
             .then(
-                function(result){
+                function(data){
                 },
                 function(xhr, textStatus, error){
                     console.log('操作コマンドの送信に失敗しました'); 
@@ -32,7 +32,7 @@ $(function(){
 
         streamText.ajaxFunc.sendData(url, cmd, cmdBtn)
             .then(
-                function(result){
+                function(data){
                 },
                 function(xhr, textStatus, error){
                     console.log('操作コマンドの送信に失敗しました'); 
@@ -50,7 +50,7 @@ $(function(){
 
         streamText.ajaxFunc.sendData(url, cmd, cmdBtn)
             .then(
-                function(result){
+                function(data){
                 },
                 function(xhr, textStatus, error){
                     console.log('操作コマンドの送信に失敗しました'); 
@@ -68,7 +68,7 @@ $(function(){
 
         streamText.ajaxFunc.sendData(url, cmd, cmdBtn)
             .then(
-                function(result){
+                function(data){
                 },
                 function(xhr, textStatus, error){
                     console.log('操作コマンドの送信に失敗しました'); 

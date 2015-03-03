@@ -2,19 +2,25 @@
 
 date_default_timezone_set('Asia/Tokyo');
 
-$year   = isset($_POST['year'])   ? $_POST['year']   : date('Y');
-$month  = isset($_POST['month'])  ? $_POST['month']  : date('m');
-$day    = isset($_POST['day'])    ? $_POST['day']    : date('d');
-$hour   = isset($_POST['hour'])   ? $_POST['hour']   : date('H');
-$minute = isset($_POST['minute']) ? $_POST['minute'] : date('i');
+// もう少し設計を考えたら綺麗にする 
+$year   = filter_input(INPUT_POST, 'year');
+$month  = filter_input(INPUT_POST, 'month');
+$day    = filter_input(INPUT_POST, 'day');
+$hour   = filter_input(INPUT_POST, 'hour');
+$minute = filter_input(INPUT_POST, 'minute'); 
+
+$year   = $year   ?: date($year);
+$month  = $month  ?: date($month);
+$day    = $day    ?: date($day);
+$hour   = $hour   ?: date($hour);
+$minute = $minute ?: date($minute);
 
 $startTime = "$year-$month-$day $hour:$minute:00";
-
 
 ?>
 
 
-<!DOCUMENT html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">

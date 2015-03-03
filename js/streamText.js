@@ -111,9 +111,17 @@ $(function(){
 
         streamText.ajaxFunc.getData(url, data)
             .then(
-                function(result){
-                    updateStreamText(result); 
-                    maxId = getMaxTextId();
+                function(data){
+                    var code = data['result'];
+                    switch(code){
+                        case 0:
+                            console.log('データの取得に失敗しました.');
+                            break; 
+                        case 1:
+                            updateStreamText(data['text']); 
+                            maxId = getMaxTextId();
+                            break;
+                    }
                 },
                 function(xhr, textStatus, error){
                     // メイン画面へのalertはNG
