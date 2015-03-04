@@ -1,7 +1,7 @@
 (function(global, namespace, $){
     
     'use strict';
-    var ns = streamText.addNamespace(namespace);
+    var ns = global.addNamespace(namespace);
 
 
     ns.isPositiveInteger = function(val){
@@ -47,4 +47,4 @@
     }
 
 
-})(this, 'streamText.util', jQuery);
+})(streamText, 'streamText.util', jQuery);

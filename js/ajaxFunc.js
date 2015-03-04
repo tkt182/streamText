@@ -1,7 +1,7 @@
 (function(global, namespace, $){
     
     'use strict';
-    var ns = streamText.addNamespace(namespace);
+    var ns = global.addNamespace(namespace);
 
 
     ns.sendData = function(url, data, btn){
@@ -39,4 +39,4 @@
     };
 
 
-})(this, 'streamText.ajaxFunc', jQuery);
+})(streamText, 'streamText.ajaxFunc', jQuery);
