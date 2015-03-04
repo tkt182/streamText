@@ -19,8 +19,10 @@ $control = array(
     'value'   => $value
 );
 
-
 $context = new ZMQContext();
 $socket  = $context->getSocket(ZMQ::SOCKET_PUSH, 'pusher');
 $socket->connect('tcp://localhost:5555');
 $socket->send(json_encode($control));
+
+$result['result'] = 1;      // レスポンスとして送る値 
+echo json_encode($result); 
