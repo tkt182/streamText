@@ -2,14 +2,14 @@ $(function(){
 
     'use strict';
     
-    // 以下、ものすごくひどいコードです。。 
+    // もう少し設計を考えたら綺麗にする
     var date    = new Date();
 
-    var cYear    = String(date.getFullYear());
-    var cMonth   = String(date.getMonth() + 1);
-    var cDay     = String(date.getDate());
-    var cHour    = String(date.getHours());
-    var cMinute  = String(date.getMinutes());
+    var cYear   = String(date.getFullYear());
+    var cMonth  = String(date.getMonth() + 1);
+    var cDay    = String(date.getDate());
+    var cHour   = String(date.getHours());
+    var cMinute = String(date.getMinutes());
 
 
     cMonth  = streamText.util.zeroBind(cMonth, 2); 
@@ -65,7 +65,7 @@ $(function(){
             return false;
         }
 
-        month  = streamText.util.zeroBind(String(month - 1), 2);
+        month  = streamText.util.zeroBind(String(month), 2);
         day    = streamText.util.zeroBind(String(day), 2);
         hour   = streamText.util.zeroBind(String(hour), 2);
         minute = streamText.util.zeroBind(String(minute), 2);

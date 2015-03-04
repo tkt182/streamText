@@ -1,7 +1,7 @@
 (function(global, namespace, $){
     
     'use strict';
-    var ns = streamText.addNamespace(namespace);
+    var ns = global.addNamespace(namespace);
 
 
     ns.sendData = function(url, data, btn){
@@ -9,8 +9,9 @@
         var jqXHR = $.ajax({ 
             url: url,
             type: 'post',  
-            data: data,
+            dataType: 'json',
             timeout: 10000,
+            data: data,
             beforeSend: function(xhr){
                 // ボタンを無効化し、2重送信を防止
                 btn.attr('disabled', true); 
@@ -29,7 +30,7 @@
 
         var jqXHR = $.ajax({
             url: url,
-            type: 'post',
+            type: 'get',
             dataType: 'json',
             timeout: 10000,
             data: data 
@@ -38,4 +39,4 @@
     };
 
 
-})(this, 'streamText.ajaxFunc', jQuery);
+})(streamText, 'streamText.ajaxFunc', jQuery);

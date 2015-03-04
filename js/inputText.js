@@ -10,8 +10,8 @@ $(function(){
 
         streamText.ajaxFunc.sendData(form.attr('action'), form.serialize(), submitBtn)
             .then(
-                function(result){
-                    var code = JSON.parse(result)['result'];
+                function(data){
+                    var code = data['result'];
                     switch(code){
                         case 0:
                             alert('登録に失敗しました.');

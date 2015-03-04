@@ -26,7 +26,7 @@ class DataBase {
 
         try{ 
             $this->_pdo = new PDO($dsn, $this->_user, $this->_passwd,
-                array(PDO::ATTR_EMULATE_PREPARES => false)
+                array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             ); 
 
         }catch(PDOException $e){
@@ -49,7 +49,6 @@ class DataBase {
     public function bind($key, $value, $type = null){
 
         if(is_null($type)){
-
             switch(true){
                 case is_int($value) :
                     $type = PDO::PARAM_INT;
@@ -64,7 +63,6 @@ class DataBase {
                     $type =PDO::PARAM_STR;
                     break;
             }
-
         }
         
         $this->_stmt->bindValue($key, $value, $type); 
@@ -77,7 +75,7 @@ class DataBase {
     } 
 
 
-    public function resultset(){
+    public function fetch(){
 
         $result = array();
         while($row = $this->_stmt->fetch(PDO::FETCH_ASSOC)){

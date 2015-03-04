@@ -6,7 +6,7 @@ $(function(){
 
 
 
-    $("#colorWhite").on('click', function(){
+    $("#colorWhite").on('click', function(e){
 
         var url    = '../streamText/php/command.php'; 
         var cmd    = {command : 'color', value : 'white'}; 
@@ -14,7 +14,7 @@ $(function(){
 
         streamText.ajaxFunc.sendData(url, cmd, cmdBtn)
             .then(
-                function(result){
+                function(data){
                 },
                 function(xhr, textStatus, error){
                     console.log('操作コマンドの送信に失敗しました'); 
@@ -24,7 +24,7 @@ $(function(){
     }); 
     
     
-    $("#colorRed").on('click', function(){
+    $("#colorRed").on('click', function(e){
 
         var url    = '../streamText/php/command.php'; 
         var cmd    = {command : 'color', value : 'red'}; 
@@ -32,7 +32,7 @@ $(function(){
 
         streamText.ajaxFunc.sendData(url, cmd, cmdBtn)
             .then(
-                function(result){
+                function(data){
                 },
                 function(xhr, textStatus, error){
                     console.log('操作コマンドの送信に失敗しました'); 
@@ -42,7 +42,7 @@ $(function(){
     });
 
 
-    $("#feedbackEnable").on('click', function(){
+    $("#feedbackEnable").on('click', function(e){
 
         var url    = '../streamText/php/command.php'; 
         var cmd    = {command : 'feedback', value : 'enable'}; 
@@ -50,7 +50,7 @@ $(function(){
 
         streamText.ajaxFunc.sendData(url, cmd, cmdBtn)
             .then(
-                function(result){
+                function(data){
                 },
                 function(xhr, textStatus, error){
                     console.log('操作コマンドの送信に失敗しました'); 
@@ -60,7 +60,7 @@ $(function(){
     }); 
 
 
-    $("#feedbackDisable").click(function(){
+    $("#feedbackDisable").click(function(e){
 
         var url    = '../streamText/php/command.php'; 
         var cmd    = {command : 'feedback', value : 'disable'}; 
@@ -68,7 +68,7 @@ $(function(){
 
         streamText.ajaxFunc.sendData(url, cmd, cmdBtn)
             .then(
-                function(result){
+                function(data){
                 },
                 function(xhr, textStatus, error){
                     console.log('操作コマンドの送信に失敗しました'); 
@@ -78,7 +78,7 @@ $(function(){
     }); 
 
     
-    $("#systemStart").on('click', function(){
+    $("#systemStart").on('click', function(e){
   
         /* 
         if(conn === null || conn.sessionid() === null){
@@ -107,7 +107,7 @@ $(function(){
     });
 
     
-    $("#systemStop").on('click', function(){
+    $("#systemStop").on('click', function(e){
 
         if(conn !== null && conn.sessionid() !== null){
             conn.close();
