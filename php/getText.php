@@ -30,11 +30,11 @@ try{
 
     $db->connect();
 
-    $sql = "SELECT id, user, txt FROM text_archives WHERE created > :startDate AND id > :maxId";
+    $sql = "SELECT id, user, txt FROM text_archives WHERE id > :maxId AND created > :startDate";
 
     $db->prepare($sql); 
-    $db->bind(':startDate', $startDate, PDO::PARAM_STR);
     $db->bind(':maxId'    , $maxId    , PDO::PARAM_INT);
+    $db->bind(':startDate', $startDate, PDO::PARAM_STR);
     $db->execute();
 
     $txtArray         = $db->fetch();
@@ -48,7 +48,6 @@ try{
     error_log($e->getMessage(), 0);
 
     echo json_encode($result);
-
 }
 
 
